@@ -4,8 +4,8 @@
 :root {
   --background: #fffae6;
   --foreground: #2e5147;
-  --primary: #F8A8B9;
-  --secondary: #FAFFC7;
+  --primary: #FAD0DE;
+  --secondary: #3B0618;
 
   --font-display: "Playfair Display", serif;
 }
@@ -17,7 +17,6 @@
   --font-mono: var(--font-geist-mono);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-  --color-secondary1: var(--secondary1);
   --font-display: var(--font-display);
 }
 
@@ -25,9 +24,8 @@
   :root {
     --background: #fffae6;
   --foreground: #2e5147;
-  --primary: #c54b8c;
-  --secondary: #f0fff0;
-  --secondary1: #662146;
+  --primary: #FAD0DE;
+  --secondary: #3B0618;
   --font-display: "Playfair Display", serif;
 
 
