@@ -1,27 +1,23 @@
-import React from 'react'
+import React from "react";
 
 const projects = [
   {
     title: "Bloom App",
-    category: "Mobile Design",
     description: "A mindfulness and meditation app with soothing visuals",
     color: "from-secondary to-light-green",
   },
   {
     title: "Sakura Shop",
-    category: "E-Commerce",
     description: "Online boutique for handcrafted Japanese goods",
     color: "from-primary to-pastel-pink",
   },
   {
     title: "Zenith Dashboard",
-    category: "Web Application",
     description: "Analytics platform with clean data visualization",
     color: "from-light-green to-secondary",
   },
   {
     title: "Flora Brand",
-    category: "Brand Identity",
     description: "Complete branding for a sustainable beauty company",
     color: "from-pastel-pink to-primary",
   },
@@ -29,12 +25,12 @@ const projects = [
 
 const Projects = () => {
   return (
-        <section id="projects" className="bg-secondary py-24">
+    <section id="projects" className="bg-white py-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-accent font-medium tracking-wide">My Work</span>
           <h2 className="font-display text-4xl md:text-5xl font-bold mt-2 text-black">
-            Featured <span className="text-primary">Projects</span>
+            Featured <span className="text-secondary">Projects</span>
           </h2>
         </div>
 
@@ -69,7 +65,7 @@ const Projects = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;

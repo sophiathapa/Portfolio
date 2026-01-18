@@ -13,7 +13,7 @@ const Skills = () => {
               UI/UX Design Creating intuitive interfaces that delight users
             </div>
 
-            <div className="bg-red-400">
+            <div className="bg-red-400">789i98
               Figma Sketch Adobe XD Development Building responsive, performant
               web applications
             </div>
