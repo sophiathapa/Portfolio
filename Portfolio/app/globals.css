@@ -4,8 +4,8 @@
 :root {
   --background: #fffae6;
   --foreground: #2e5147;
-  --primary: #FAD0DE;
-  --secondary: #3B0618;
+  --primary: #fad0de;
+  --secondary: #3b0618;
 
   --font-display: "Playfair Display", serif;
 }
@@ -23,14 +23,20 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #fffae6;
-  --foreground: #2e5147;
-  --primary: #FAD0DE;
-  --secondary: #3B0618;
-  --font-display: "Playfair Display", serif;
-
-
-
+    --foreground: #2e5147;
+    --primary: #fad0de;
+    --secondary: #3b0618;
+    --font-display: "Playfair Display", serif;
   }
+}
+
+.font-edwardian {
+  font-family: "Edwardian Script ITC", cursive;
+}
+
+.text-stroke-outside {
+  -webkit-text-stroke: 3px white;
+  color: transparent;
 }
 
 body {

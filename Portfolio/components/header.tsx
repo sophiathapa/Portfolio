@@ -3,7 +3,6 @@ import React from "react";
 const Header = () => {
   return (
     <section id="landPage" className=" min-h-screen px-15 py-5 bg-primary">
-
       <img src="star 1.png" alt="star1" className="absolute mt-30 w-[60px]" />
 
       <img
@@ -24,7 +23,11 @@ const Header = () => {
         className="absolute mt-65 ml-140 w-[40px]"
       />
 
-      <img src="portfolio.png" alt="Portfolio" className="abosolute mt-65 w-[450]" />
+      <img
+        src="portfolio.png"
+        alt="Portfolio"
+        className="abosolute mt-65 w-[450]"
+      />
       <div className="text-xl text-black font-display mt-1">
         Crafting complete digital experiences with code and creativity.
       </div>

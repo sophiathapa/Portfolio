@@ -4,10 +4,10 @@ import { SiExpress, SiMongodb } from "react-icons/si";
 
 const About = () => {
   return (
-    <section className="relative px-15 py-5  bg-secondary overflow-hidden">
+    <section className="relative px-15 py-24  bg-secondary overflow-hidden">
       <div className="absolute inset-0 blur-3xl bg-pink-800 opacity-30"></div>
 
-      <div className=" relative grid grid-cols-2 mt-20 z-10">
+      <div className=" relative grid grid-cols-2  z-10">
         <div className="flex items-center justify-center ">
           <div className="p-10">
             <img src="quote.png"></img>
@@ -40,25 +40,25 @@ const About = () => {
             </div>
             <div className="flex mt-10 gap-6">
               <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
-                <IoLogoJavascript className="text-secondary text-4xl" />
+                <IoLogoJavascript className="text-black text-4xl" />
               </div>
               <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
-                <FaReact className="text-secondary text-4xl" />
+                <FaReact className="text-black text-4xl" />
               </div>
               <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
-                <SiExpress className="text-secondary text-4xl" />
+                <SiExpress className="text-black text-4xl" />
               </div>
               <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
-                <FaNodeJs className="text-secondary text-4xl" />
+                <FaNodeJs className="text-black text-4xl" />
               </div>
               <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
-                <SiMongodb className="text-secondary text-4xl" />
+                <SiMongodb className="text-black text-4xl" />
               </div>
               <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
-                <FaPython className="text-secondary text-4xl" />
+                <FaPython className="text-black text-4xl" />
               </div>
               <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center">
-                <FaFigma className="text-secondary text-4xl" />
+                <FaFigma className="text-black text-4xl" />
               </div>
             </div>
           </div>

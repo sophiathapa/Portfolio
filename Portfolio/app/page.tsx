@@ -1,11 +1,9 @@
-"use client";
 import About from "@/components/About";
 import Contact from "@/components/contact";
 import Footer from "@/components/Footer";
 import Header from "@/components/header";
 import Navbar from "@/components/navbar";
 import Projects from "@/components/projects";
-import Skills from "@/components/skills";
 
 export default function Home() {
   return (
@@ -13,9 +11,8 @@ export default function Home() {
       <Navbar />
       <main className="">
         <Header />
-        <About/>
+        <About />
         <Projects />
-        <Skills />
         <Contact />
         <Footer />
       </main>
