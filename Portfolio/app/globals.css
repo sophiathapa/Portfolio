@@ -1,19 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Edwardian+Script+ITC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #fffae6;
-  --foreground: #2e5147;
-  --primary: #fad0de;
-  --secondary: #3b0618;
-
+  --background: #EFE5DA;
+  --foreground: #38312E;
+  --primary: #FF57B8;
+  --secondary: #AFA8AB;
+  --card: #ffffff/50;
   --font-display: "Playfair Display", serif;
 }
 
 @theme inline {
   /* --color-background: var(--background);
   --color-foreground: var(--foreground); */
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
@@ -22,16 +29,25 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #fffae6;
-    --foreground: #2e5147;
-    --primary: #fad0de;
-    --secondary: #3b0618;
+    --background: #EFE5DA;
+    --foreground: #38312E;
+    --primary: #FF57B8;
+    --secondary: #AFA8AB;
+    --card: rgba(255, 255, 255, 0.5);
     --font-display: "Playfair Display", serif;
   }
 }
 
 .font-edwardian {
   font-family: "Edwardian Script ITC", cursive;
+}
+
+.font-montecarlo {
+  font-family: "MonteCarlo", cursive;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
 }
 
 .text-stroke-outside {

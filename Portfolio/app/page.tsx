@@ -1,21 +1,16 @@
-import About from "@/components/About";
-import Contact from "@/components/contact";
+import { ExperienceSection } from "@/components/experience-section";
 import Footer from "@/components/Footer";
+import { Navigation } from "@/components/navigation";
 import Header from "@/components/header";
-import Navbar from "@/components/navbar";
-import Projects from "@/components/projects";
+import { ContactSection } from "@/components/contact-section";
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-secondary bg-primary">
-      <Navbar />
-      <main className="">
+    <div className="min-h-screen">
         <Header />
-        <About />
-        <Projects />
-        <Contact />
+        <ExperienceSection />
+        <ContactSection />
         <Footer />
-      </main>
     </div>
   );
 }
