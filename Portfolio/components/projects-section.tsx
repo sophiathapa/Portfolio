@@ -7,78 +7,57 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import { IoLogoGithub } from "react-icons/io";
+import { LuGithub } from "react-icons/lu";
 
 
 const projects = [
   {
     id: 1,
-    title: "Yatri",
+    title: "Samiksha Sansar",
     description:
-      "A comprehensive cloud management platform with real-time analytics, automated scaling, and multi-cloud integration. Built with focus on performance and accessibility.",
-    image: "/images/project-1.jpg",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+      "This is a MERN-based web platform where readers can explore books, read detailed information, leave comments, like books, and get intelligent recommendations based on their preferences.",
+    image: "/images/project-2.jpg",
+    technologies: ["React", "Node.js", "Express", "Mongodb", "JWT"],
+    liveUrl: null,
+    githubUrl: "https://github.com/sophiathapa/Samiksha-Sansar",
     featured: true,
   },
   {
     id: 2,
-    title: "Samiksha Sansar",
+    title: "Yatri",
     description:
-      "Cross-platform mobile app for tracking carbon footprint with AI-powered recommendations and community challenges. Gamified approach to environmental awareness.",
-    image: "/images/project-2.jpg",
-    technologies: ["React Native", "Expo", "Node.js", "MongoDB", "TensorFlow"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+      "Yatri is a comprehensive bus and vehicle management system designed to streamline bus operations, from route creation and fare assignment to real-time tracking and passenger reservations. The platform includes a dedicated admin panel, user-friendly dashboards for drivers and passengers, and a phased development roadmap to introduce new features.",
+    image: "/images/project-1.jpg",
+    technologies: ["React", "Node.js", "Express", "Mongodb", "Tailwind CSS", "JWT", "Leaflet"],
+    liveUrl: null,
+    githubUrl: "https://github.com/kaylinkhanal/yatri",
     featured: true,
   },
   {
     id: 3,
     title: "Gesture Controlled Virtual Mouse",
     description:
-      "Real-time collaborative coding environment with integrated video chat, version control, and AI code assistance. Supporting multiple programming languages.",
+      "A computer-vision powered virtual mouse system that uses hand gestures to control mouse movements, clicks, and interactions removing the need for a physical mouse. Built using Python, OpenCV, Tensorflow, and PyAutoGUI, this project demonstrates the use of real-time hand tracking and gesture recognition.",
     image: "/images/project-3.jpg",
-    technologies: ["React", "WebRTC", "Socket.io", "Redis", "Docker"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    technologies: ["Python", "OpenCV", "PyAutoGUI", "NumPy", "Tensorflow", "Imutils", "Keras"],
+    liveUrl: null,
+    githubUrl: "https://github.com/sophiathapa/Virtual-Mouse",
     featured: true,
   },
   {
     id: 4,
     title: "Book Recommendaion System",
     description:
-      "Personal finance management app with budgeting tools, expense tracking, and investment portfolio analysis with beautiful data visualizations.",
+      "A hybrid book recommendation system that combines collaborative filtering and content-based filtering techniques to provide personalized book suggestions. The system analyzes user preferences, reading patterns, and book attributes to deliver accurate and relevant recommendations, enhancing the overall user experience.",
     image: "/images/project-4.jpg",
-    technologies: ["Vue.js", "D3.js", "Firebase", "Plaid API"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
+    technologies: ["Python", "Numpy", "Pandas",  "TF-IDF", "Cosine Similarity", "Collaborative Filtering"],
+    liveUrl: null,
+    githubUrl: "",
     featured: false,
   },
-  {
-    id: 5,
-    title: "HealthMate AI",
-    description:
-      "AI-powered health companion providing personalized workout plans, nutrition advice, and mental wellness tracking with data privacy at its core.",
-    image: "/images/project-5.jpg",
-    technologies: ["Python", "FastAPI", "React", "OpenAI", "AWS"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "ArtisanMarket",
-    description:
-      "E-commerce platform connecting local artisans with global customers. Features include live auctions, custom orders, and secure payment processing.",
-    image: "/images/project-6.jpg",
-    technologies: ["Next.js", "Stripe", "Sanity CMS", "Algolia"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    featured: false,
-  },
+  
 ]
 
-const filters = ["All", "Frontend", "Backend", "Full Stack", "Mobile"]
 
 export function ProjectsSection() {
   const ref = useRef(null)
@@ -119,31 +98,10 @@ export function ProjectsSection() {
               initial={{ scaleX: 0 }}
               animate={isInView ? { scaleX: 1 } : {}}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"
+              className="w-20 h-1 bg-gradient-to-r from-primary to-primary/20 mx-auto rounded-full"
             />
           </div>
 
-          {/* Filter Tabs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.5 }}
-            className="flex flex-wrap justify-center gap-2 mb-12"
-          >
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeFilter === filter
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </motion.div>
 
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -154,28 +112,28 @@ export function ProjectsSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
                 whileHover={{ y: -8 }}
-                className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500"
+                className="group bg-white/20 border border-secondary rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500"
               >
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden bg-muted">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/20" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="text-4xl font-bold text-primary/20">{project.title[0]}</span>
                   </div>
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-foreground/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                     <motion.a
-                      href={project.liveUrl}
+                      href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-primary text-primary-foreground rounded-full"
+                      className="p-3 bg-primary/80 text-foreground rounded-full"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       aria-label={`View ${project.title} live`}
                     >
-                      <ExternalLink className="w-5 h-5" />
+                      <LuGithub className="w-6 h-6" />
                     </motion.a>
-                    <motion.a
+                    {/* <motion.a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -184,8 +142,8 @@ export function ProjectsSection() {
                       whileTap={{ scale: 0.95 }}
                       aria-label={`View ${project.title} on GitHub`}
                     >
-                      <IoLogoGithub className="w-5 h-5" />
-                    </motion.a>
+                      <ExternalLink className="w-5 h-5" />
+                    </motion.a> */}
                   </div>
                 </div>
 
@@ -198,16 +156,16 @@ export function ProjectsSection() {
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 4).map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
+                    {project.technologies.map((tech) => (
+                      <Badge key={tech} className="text-xs">
                         {tech}
                       </Badge>
                     ))}
-                    {project.technologies.length > 4 && (
-                      <Badge variant="secondary" className="text-xs">
+                    {/* {project.technologies.length > 4 && (
+                      <Badge className="text-xs">
                         +{project.technologies.length - 4}
                       </Badge>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </motion.article>
