@@ -38,7 +38,7 @@ export function Navigation() {
       >
         <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <motion.a
-            href="#"
+            href="/#home"
             className="text-xl font-semibold tracking-tight"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}

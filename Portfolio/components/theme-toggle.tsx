@@ -1,25 +1,23 @@
-"use client"
+"use client";
 
-import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
-import { Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Moon, Sun } from "lucide-react";
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   if (!mounted) {
-    return (
-      <div className="w-14 h-8 rounded-full bg-secondary" />
-    )
+    return <div className="w-14 h-8 rounded-full bg-secondary" />;
   }
 
-  const isDark = theme === "dark"
+  const isDark = theme === "dark";
 
   return (
     <motion.button
@@ -40,12 +38,8 @@ export function ThemeToggle() {
           damping: 30,
         }}
       >
-        {isDark ? (
-          <Moon className="w-3.5 h-3.5 text-primary-foreground" />
-        ) : (
-          <Sun className="w-3.5 h-3.5 text-primary-foreground" />
-        )}
+        {isDark ? <Moon className="w-3.5 h-3.5 text-primary-foreground" /> : <Sun className="w-3.5 h-3.5 text-primary-foreground" />}
       </motion.div>
     </motion.button>
-  )
+  );
 }

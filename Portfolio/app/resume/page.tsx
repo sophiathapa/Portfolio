@@ -1,15 +1,107 @@
+"use client";
+import { motion, useInView } from "framer-motion";
+import { Mail, Phone, MapPin, Download, ExternalLink } from "lucide-react";
+import { useRef } from "react";
+
+const contactInfo = [
+    { icon: Mail, value: "sophia.thapa55@gmail.com" },
+    { icon: Phone, value: "9869686538" },
+    { icon: MapPin, value: "Lalitpur, Nepal" }
+];
+
+const resumeDetails = [
+  {
+    label: "File Size",
+    value: "1.2 MB",
+  },
+  {
+    label: "Pages",
+    value: "2 Pages",
+  },
+  {
+    label: "Last Updated",
+    value: "June 2026",
+  },
+];
+
 const Resume = () => {
-    return (
-        <>
-            <section id="resume" className="py-20"> 
-                <div className="container mx-auto px-5">
-                <object data="resume9.pdf" type="application/pdf" width="100%" height="600px">
-                    <p>Your browser does not support PDFs. <a href="resume.pdf" className="text-primary underline">Download the resume</a>.</p>
-                </object>
-                </div>
-            </section>
-        </>
-    );
-}
+  return (
+    <>
+      <section id="resume" className="py-24">
+        <div className="max-w-8xl mx-auto px-15">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ delay: 0.2, duration: 0.7 }} 
+            className="text-5xl text-primary sm:text-6xl text-center font-bold mt-4 mb-6">
+            My Resume
+          </motion.h1>
+          <p className="text-center text-lg mb-10">
+            Download or view my professional resume to learn more about my skills, experience, and qualifications.
+          </p>
+          <div className="flex justify-center gap-5">
+            <motion.a
+                href="/resume9.pdf"
+                download="Sophia_Resume.pdf"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.7 }}
+                className="flex justify-center items-center gap-3 bg-primary/60 rounded-lg p-2 w-55 h-15 border-primary/50 hover:scale-105 transition-all font-sm"
+                >
+                <Download className="w-8 h-8" />
+                Download Resume
+            </motion.a>
+            <motion.button 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.7 }}
+                onClick={() => window.open("/resume9.pdf", "_blank")}
+                className="flex justify-center items-center gap-3 bg-primary/60 rounded-lg p-2 w-55 h-15 hover:scale-105 border-primary/50 transition-all font-sm"
+            >
+               <ExternalLink className="w-8 h-8" /> Open On New Tab
+            </motion.button>
+          </div>
+          <div className="flex flex-col lg:flex-row gap-5 bg-white/50 border-t-2 border-secondary/50 rounded-md mt-20 p-10">
+            <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-3 bg-white/50 border-2 border-secondary/50 rounded-md p-10">
+                <h2 className="text-xl font-semibold text-primary">Contact Info</h2>
+                {contactInfo?.map((info, index) => (
+                  <div key={index} className="flex flex-row gap-3 items-center">
+                    <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <info.icon className="w-4 h-4 text-primary" />
+                    </div>
+                    <span className="text-sm">{info.value}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col gap-3 bg-white/50 border-2 border-secondary/50 rounded-md p-10">
+                <h2 className="text-xl font-semibold text-primary">Resume Details</h2>
+                {resumeDetails?.map((info, index) => (
+                  <div key={index} className="flex flex-col gap-1">
+                    <span className="text-sm">
+                      {info.label}: {info.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="flex flex-col gap-8 justify-center bg-white/50 border-2 border-secondary/50 rounded-md p-10 overflow-hidden">
+              <h2 className="text-3xl md:text-4xl font-semibold text-primary">Resume Preview</h2>
+              <object data="resume9.pdf" type="application/pdf" height="700px" className="mx-auto w-[500px] md:w-[700px] lg:w-[900px] border-2 border-secondary/50 rounded-md">
+                <p>
+                  Your browser does not support PDFs.{" "}
+                  <a href="resume.pdf" className="text-primary underline">
+                    Download the resume
+                  </a>
+                  .
+                </p>
+              </object>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
 export default Resume;
