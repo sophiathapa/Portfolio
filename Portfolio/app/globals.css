@@ -11,8 +11,8 @@
 :root {
   --background: #EFE5DA;
   --foreground: #38312E;
-  --primary: #FF57B8;
-  --secondary: #AFA8AB;
+  --primary: #48CAE4;
+  --secondary: #E46349;
   --card: #ffffff/50;
   --font-display: "Playfair Display", serif;
 }
@@ -31,8 +31,8 @@
   :root {
     --background: #EFE5DA;
     --foreground: #38312E;
-    --primary: #FF57B8;
-    --secondary: #AFA8AB;
+    --primary: #48CAE4;
+    --secondary: #E46349;
     --card: rgba(255, 255, 255, 0.5);
     --font-display: "Playfair Display", serif;
   }
