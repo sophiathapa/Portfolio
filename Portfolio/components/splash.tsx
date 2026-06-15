@@ -8,7 +8,7 @@ const greetings = [
 ];
 
 const INTERVAL = 300;
-const HOLD = 300;
+const HOLD = 200;
 const START_DELAY = 1000;
 const EXIT_START = greetings.length * INTERVAL + HOLD;
 const DONE = EXIT_START + 600;
@@ -48,13 +48,17 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
         {!out && (
           <motion.div
             key="splash"
-            exit={{ opacity: 0}}
-            transition={{duration: EXIT_START }}
+            exit={{ 
+              y: "-150%",
+              borderBottomLeftRadius: "70%",
+              borderBottomRightRadius: "70%",
+            }}
+            transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
             style={{
               position: "fixed",
               inset: 0,
-              zIndex: 9999,
-              background: "#48CAE4",
+              zIndex: 100,
+              background: "var(--primary)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -68,7 +72,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0}}
                         transition={{ duration:0.1}}
-                        className="text-black text-5xl font-semi-bold"
+                        className="text-background text-5xl font-semi-bold"
                     >
                         • {greetings[index]}
                     </motion.h1>

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Edwardian+Script+ITC&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"); */
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -9,17 +9,17 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #EFE5DA;
-  --foreground: #38312E;
-  --primary: #48CAE4;
-  --secondary: #E46349;
+  --background: #f6f4ee;
+  --foreground: #2b2f2d;
+  --primary: #6b8f71;
+  --secondary: #d6b98c;
   --card: #ffffff/50;
   --font-display: "Playfair Display", serif;
 }
 
-@theme inline {
-  /* --color-background: var(--background);
-  --color-foreground: var(--foreground); */
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
   --color-primary: var(--primary);
@@ -29,25 +29,22 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #EFE5DA;
-    --foreground: #38312E;
-    --primary: #48CAE4;
-    --secondary: #E46349;
+    --background: #f6f4ee;
+    --foreground: #2b2f2d;
+    --primary: #6b8f71;
+    --secondary: #d6b98c;
     --card: rgba(255, 255, 255, 0.5);
     --font-display: "Playfair Display", serif;
   }
-}
-
-.font-edwardian {
-  font-family: "Edwardian Script ITC", cursive;
 }
 
 .font-montecarlo {
   font-family: "MonteCarlo", cursive;
 }
 
-.font-montserrat {
-  font-family: "Montserrat", sans-serif;
+
+.font-roboto {
+  font-family: "Roboto", sans-serif;
 }
 
 .text-stroke-outside {

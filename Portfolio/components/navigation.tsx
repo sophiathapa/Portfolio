@@ -29,7 +29,7 @@ export function Navigation() {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        transition={{ type: "spring", stiffness: 100, damping: 20, delay: 4.8}}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? "bg-background/80 backdrop-blur-lg border-b border-secondary shadow-sm"
@@ -56,7 +56,7 @@ export function Navigation() {
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: (index * 0.1) + 4.9 }}
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
