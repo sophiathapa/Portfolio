@@ -68,7 +68,7 @@ export function ProjectsSection() {
   const displayedProjects = showAll ? projects : projects.filter((p) => p.featured)
 
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-24 bg-secondary text-secondary-foreground">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           ref={ref}

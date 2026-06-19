@@ -9,11 +9,12 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #f6f4ee;
-  --foreground: #2b2f2d;
-  --primary: #6b8f71;
-  --secondary: #d6b98c;
-  --card: #ffffff/50;
+  --background: #f2f2f2;
+  --foreground: #5b5b5b;
+  --primary: #febe10;
+  --primary-foreground: #000000;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
   --font-display: "Playfair Display", serif;
 }
 
@@ -23,17 +24,21 @@
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
   --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
   --font-display: var(--font-display);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #f6f4ee;
-    --foreground: #2b2f2d;
-    --primary: #6b8f71;
-    --secondary: #d6b98c;
-    --card: rgba(255, 255, 255, 0.5);
+    --background: #f2f2f2;
+    --foreground: #5b5b5b;
+    --primary: #febe10;
+    --primary-foreground: #000000;
+    --secondary: #1a1a1a;
+    --secondary-foreground: #ffffff;
+    --font-display: "Playfair Display", serif;
     --font-display: "Playfair Display", serif;
   }
 }
@@ -41,7 +46,6 @@
 .font-montecarlo {
   font-family: "MonteCarlo", cursive;
 }
-
 
 .font-roboto {
   font-family: "Roboto", sans-serif;

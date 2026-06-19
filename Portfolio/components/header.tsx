@@ -1,54 +1,58 @@
 "use client";
-import { easeInOut, motion, useAnimationControls } from "framer-motion";
+import { easeInOut, motion, useAnimationControls, useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
 import { MoveDownRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
 const Header = () => {
+  const [isScrollingDown, setIsScrollingDown] = useState(true);
   const router = useRouter();
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (current) => {
+  const previous = scrollY.getPrevious() ?? 0;
+    setIsScrollingDown(current > previous);
+  });
 
   return (
-    <section id="home" className="pb-24">
-      <div className="relative min-h-screen overflow-hidden max-w-8xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-10 md:gap-5">
+    <section id="home" className="">
+      <motion.div 
+        className="relative min-h-screen overflow-hidden max-w-8xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-10 md:gap-5">
         <motion.div 
           initial={{ opacity: 0, y: 100 }} 
           animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.6  }} 
+          transition={{ duration: 0.6 }} 
           className="relative mt-10 md:mt-0 w-[450px] sm:w-[500px] md:w-[550px] lg:w-[600px] h-[600px] sm:h-[650px] md:h-full lg:h-full">
-          <img
-            src="sophia.png"
-            alt="me"
-            className="absolute bootom-0 w-full h-full"
-          />
+          <img src="sophia.png" 
+            alt="me" 
+            className="absolute bootom-0 w-full h-full brightness-80 saturation-80 contrast-90" />
         </motion.div>
-        <div className="relative sm:mt-80 flex flex-col gap-6 md:gap-10 ml-10 md:ml-0 text-primary">
-          <motion.div
-            initial={{ opacity: 0, y: 200 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col"
-          >
-            <MoveDownRight/>
-            <span className="mt-3 text-3xl sm:text-4xl md:text-4xl lg:text-4xl">Web Developer</span>
+        <div className="relative sm:mt-80 flex flex-col gap-5 md:gap-10 ml-10 md:ml-0">
+          <motion.div 
+            initial={{ opacity: 0, y: 200 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.6 }} 
+            className="flex flex-col gap-5 md:gap-10">
+            <MoveDownRight />
+            <span className="mt-3 text-3xl sm:text-4xl md:text-4xl lg:text-4xl text-foreground">Web Developer</span>
           </motion.div>
           <motion.button 
-            initial={{ opacity: 0, y: 200 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-primary text-background hover:bg-primary/90 rounded-lg w-35 h-12 sm:ml-26" onClick={()=>router.push("/resume")}
-          >
+            initial={{ opacity: 0, y: 200 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.6 }} 
+            className="bg-secondary text-secondary-foreground hover:scale-104 rounded-lg w-35 h-12 sm:ml-26" 
+            onClick={() => router.push("/resume")}>
             Resume
           </motion.button>
-          </div>
-        <motion.div className="absolute mt-125 sm:mt-140 md:mt-150  font-roboto text-white sm:text-primary text-semi-bold overflow-hidden whitespace-nowrap"
-          initial={{ opacity: 0, y: 200 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        </div>
+        <motion.div 
+          className="absolute mt-125 sm:mt-140 md:mt-150  font-roboto text-primary/70 text-semi-bold overflow-hidden whitespace-nowrap" initial={{ opacity: 0, y: 200 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.6 }}>
           <motion.div
             className="inline-flex text-7xl sm:text-8xl md:text-9xl lg:text-[130px]"
-            animate={{ x: ["0%", "-50%"] }}
+            animate={ isScrollingDown? {x:["0%","-50%"]} : {x:["-80%","0%"]} }
             transition={{
               duration: 15,
               ease: "linear",
@@ -56,12 +60,14 @@ const Header = () => {
               repeatType: "loop",
             }}
           >
-            <span className="px-10 md:px-16 tracking-[-2px]">Sophia Thapa Magar</span>
+            <span className="px-10 py-2 md:px-16 tracking-[-5px]">Sophia Thapa Magar</span>
             <span className="">-</span>
-            <span className="px-10 md:px-16 tracking-[-2px]">Sophia Thapa Magar</span>
+            <span className="px-10 py-2 md:px-16 tracking-[-5px]">Sophia Thapa Magar</span>
+            <span className="">-</span>
+            <span className="px-10 py-2 md:px-16 tracking-[-5px]">Sophia Thapa Magar</span>
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -72,7 +72,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0}}
                         transition={{ duration:0.1}}
-                        className="text-background text-5xl font-semi-bold"
+                        className="text-primary-foreground text-5xl font-semi-bold"
                     >
                         • {greetings[index]}
                     </motion.h1>

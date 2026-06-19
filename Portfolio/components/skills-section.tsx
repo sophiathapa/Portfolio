@@ -25,11 +25,7 @@ function TextLine({ words, reverse }: { words: string[]; reverse: boolean }) {
         }}
       >
         {words.map((word, i) => (
-          <StackIcon 
-            name={word} 
-            key={i} 
-            className="w-12 h-12 sm:ml-4  md:ml-8 lg:ml-10 sm:w-18 sm:h-18 md:w-25 md:h-25 lg:w-30 lg:h-30 p-2" 
-          />
+          <StackIcon name={word} key={i} className="w-12 h-12 sm:ml-4  md:ml-8 lg:ml-10 sm:w-18 sm:h-18 md:w-25 md:h-25 lg:w-30 lg:h-30 p-2" />
         ))}
       </motion.div>
     </div>
@@ -41,7 +37,7 @@ const Skills = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-24">
+    <section id="skills" className="py-24 bg-secondary text-secondary-foreground">
       <div className="max-w-6xl mx-auto">
         <div ref={ref}>
           <div className="text-center mb-20">
