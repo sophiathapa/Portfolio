@@ -28,7 +28,7 @@ const experiences = [
 
 export function ExperienceSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: false, margin: "-100px" })
 
   return (
     <section id="experience" className="py-24">
@@ -68,7 +68,7 @@ export function ExperienceSection() {
           {/* Timeline */}
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-primary/10 md:-translate-x-1/2" />
+            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-primary/25 md:-translate-x-1/2" />
 
             <div className="space-y-12">
               {experiences.map((exp, index) => (
@@ -82,7 +82,7 @@ export function ExperienceSection() {
                   }`}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-primary rounded-full -translate-x-1/2 md:-translate-x-1/2 z-10 ring-4 ring-primary" />
+                  <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-primary/80 rounded-full -translate-x-1/2 md:-translate-x-1/2 z-10 ring-4 ring-primary/80" />
 
                   {/* Date (desktop) */}
                   <div
@@ -101,7 +101,7 @@ export function ExperienceSection() {
                   >
                     <motion.div
                       whileHover={{ scale: 1.02 }}
-                      className="bg-white/50 border border-secondary/50 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300"
+                      className="bg-card border border-card-border/30 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300"
                     >
                       {/* Date (mobile) */}
                       <span className="md:hidden text-sm font-mono text-muted-foreground block mb-2">
@@ -113,17 +113,17 @@ export function ExperienceSection() {
                         href={exp.companyUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-primary hover:text-accent transition-colors mb-3 group"
+                        className="inline-flex items-center gap-1 text-primary transition-colors mb-3 group"
                       >
                         {exp.company}
                         <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </a>
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      <p className="text-foreground text-sm leading-relaxed mb-4">
                         {exp.description}
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {exp.technologies.map((tech) => (
-                          <Badge key={tech} className="text-xs text-black">
+                          <Badge key={tech} className="text-xs">
                             {tech}
                           </Badge>
                         ))}

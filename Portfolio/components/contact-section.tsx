@@ -15,12 +15,12 @@ const contactInfo = [
     icon: Mail,
     label: "Email",
     value: "sophia.thapa55@gmail.com",
-    href: "mailto:hello@sarahchen.dev",
+    href: "mailto:sophia.thapa55@gmail.com",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "Jhamsikhel, Lalitpur, Nepal",
+    value: "Lalitpur, Nepal",
     href: null,
   },
   {
@@ -38,7 +38,7 @@ const socialLinks = [
 
 export function ContactSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: false, margin: "-100px" })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -142,7 +142,7 @@ export function ContactSection() {
                         {item.href ? (
                           <a
                             href={item.href}
-                            className="font-medium hover:text-primary transition-colors"
+                            className="font-medium group-hover:text-primary transition-colors"
                           >
                             {item.value}
                           </a>
@@ -167,9 +167,8 @@ export function ContactSection() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.8 + index * 0.1 }}
-                      whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-12 h-12 bg-white/50 border border-secondary/50 rounded-xl flex items-center justify-center hover:border-primary/50 hover:bg-primary/5 transition-all"
+                      className="w-12 h-12 border border-foreground/10 bg-primary/10 hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.1] rounded-xl flex items-center justify-center transition-all"
                       aria-label={link.label}
                     >
                       <link.icon className="w-5 h-5" />
@@ -185,7 +184,7 @@ export function ContactSection() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              <div className="bg-white/50 border border-secondary/50 rounded-2xl p-8 shadow-sm">
+              <div className="bg-card border border-card-border/30 rounded-2xl p-8 shadow-sm">
                 {isSubmitted ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -196,7 +195,7 @@ export function ContactSection() {
                       <Send className="w-8 h-8 text-primary" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-foreground">
                       Thank you for reaching out. I&apos;ll get back to you soon!
                     </p>
                   </motion.div>
@@ -209,7 +208,7 @@ export function ContactSection() {
                           id="name"
                           placeholder="Your name"
                           required
-                          className="bg-background border-secondary/50 focus:ring-primary/20"
+                          className="bg-background h-10 border-card-border/30 focus:ring-primary/20"
                         />
                       </div>
                       <div className="space-y-2">
@@ -219,7 +218,7 @@ export function ContactSection() {
                           type="email"
                           placeholder="your@email.com"
                           required
-                          className="bg-background border-secondary/50 focus:ring-primary/20"
+                          className="bg-background h-10 border-card-border/30 focus:ring-primary/20"
                         />
                       </div>
                     </div>
@@ -229,7 +228,7 @@ export function ContactSection() {
                         id="subject"
                         placeholder="Project inquiry"
                         required
-                        className="bg-background border-secondary/50 focus:ring-primary/20"
+                        className="bg-background h-10 border-card-border/30 focus:ring-primary/20"
                       />
                     </div>
                     <div className="space-y-2">
@@ -239,13 +238,13 @@ export function ContactSection() {
                         placeholder="Tell me about your project..."
                         rows={5}
                         required
-                        className="bg-background border-secondary/50 focus:ring-primary/20 resize-none"
+                        className="bg-background h-20 border-card-border/30 focus:ring-primary/20 resize-none"
                       />
                     </div>
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full group bg-primary/60 hover:bg-primary/80 border-primary/50 hover:border-primary/70 transition-all"
+                      className="w-full group bg-primary hover:bg-primary/90 transition-all"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (

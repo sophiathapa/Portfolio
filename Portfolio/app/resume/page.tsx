@@ -70,20 +70,20 @@ const Resume = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex flex-col lg:flex-row gap-5 md:bg-white/50 md:border-1 md:border-secondary/50 rounded-md mt-20 md:p-10">
+            className="flex flex-col lg:flex-row gap-5 md:bg-card md:border-1 md:border-card-border/30 rounded-md mt-20 md:p-10">
             <div className="flex flex-col gap-5">
-              <div className="flex flex-col gap-3 bg-white/50 border-2 border-secondary/50 rounded-md p-10">
+              <div className="flex flex-col gap-3 bg-card border-2 border-card-border/30 rounded-md p-5 md:p-10">
                 <h2 className="text-xl font-semibold text-primary">Contact Info</h2>
                 {contactInfo?.map((info, index) => (
                   <div key={index} className="flex flex-row gap-3 items-center">
                     <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                         <info.icon className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="text-sm">{info.value}</span>
+                    <span className="text-xs">{info.value}</span>
                   </div>
                 ))}
               </div>
-              <div className="flex flex-col gap-3 bg-white/50 border-2 border-secondary/50 rounded-md p-10">
+              <div className="flex flex-col gap-3 bg-card border-2 border-card-border/30 rounded-md p-10">
                 <h2 className="text-xl font-semibold text-primary">Resume Details</h2>
                 {resumeDetails?.map((info, index) => (
                   <div key={index} className="flex flex-col gap-1">
@@ -94,9 +94,9 @@ const Resume = () => {
                 ))}
               </div>
             </div>
-            <div className="flex flex-col gap-8 justify-center bg-white/50 border-2 border-secondary/50 rounded-md p-10 overflow-hidden">
+            <div className="flex flex-col gap-8 justify-center bg-card border-2 border-card-border/30 rounded-md p-10 overflow-hidden">
               <h2 className="text-3xl md:text-4xl font-semibold text-primary">Resume Preview</h2>
-              <object data="resume9.pdf" type="application/pdf" height="700px" className="mx-auto w-[200px] sm:w-[500px] md:w-[700px] lg:w-[900px] border-2 border-secondary/50 rounded-md">
+              <object data="resume9.pdf" type="application/pdf" height="700px" className="mx-auto w-[200px] sm:w-[500px] md:w-[700px] lg:w-[900px] border-2 border-card-border/30 rounded-md">
                 <p>
                   Your browser does not support PDFs.{" "}
                   <a href="resume.pdf" className="text-primary underline">

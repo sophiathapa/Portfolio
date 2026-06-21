@@ -1,5 +1,4 @@
 "use client";
-
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -18,6 +17,7 @@ export function ThemeToggle() {
   }
 
   const isDark = theme === "dark";
+  console.log(theme);
 
   return (
     <motion.button

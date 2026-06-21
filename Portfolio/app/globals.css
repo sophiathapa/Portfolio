@@ -15,6 +15,20 @@
   --primary-foreground: #000000;
   --secondary: #1a1a1a;
   --secondary-foreground: #ffffff;
+  --card: #ffffff80;
+  --card-border: #5b5b5b;
+  --font-display: "Playfair Display", serif;
+}
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #f2f2f2;
+  --primary: #febe10;
+  --primary-foreground: #000000;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+  --card: #ffffff15;
+  --card-border: #5b5b5b;
   --font-display: "Playfair Display", serif;
 }
 
@@ -27,21 +41,11 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
   --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #f2f2f2;
-    --foreground: #5b5b5b;
-    --primary: #febe10;
-    --primary-foreground: #000000;
-    --secondary: #1a1a1a;
-    --secondary-foreground: #ffffff;
-    --font-display: "Playfair Display", serif;
-    --font-display: "Playfair Display", serif;
-  }
-}
 
 .font-montecarlo {
   font-family: "MonteCarlo", cursive;

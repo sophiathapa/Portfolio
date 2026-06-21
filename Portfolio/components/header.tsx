@@ -1,6 +1,6 @@
 "use client";
 import { easeInOut, motion, useAnimationControls, useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
-import { MoveDownRight } from "lucide-react";
+import { FileText, MoveDownRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
@@ -16,14 +16,14 @@ const Header = () => {
   });
 
   return (
-    <section id="home" className="">
+    <section id="home" className="pb-24">
       <motion.div 
         className="relative min-h-screen overflow-hidden max-w-8xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-10 md:gap-5">
         <motion.div 
           initial={{ opacity: 0, y: 100 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.6 }} 
-          className="relative mt-10 md:mt-0 w-[450px] sm:w-[500px] md:w-[550px] lg:w-[600px] h-[600px] sm:h-[650px] md:h-full lg:h-full">
+          className="relative mt-10 md:mt-0 w-[450px] sm:w-[530px] md:w-[550px] lg:w-[600px] h-[600px] sm:h-full md:h-full lg:h-full">
           <img src="sophia.png" 
             alt="me" 
             className="absolute bootom-0 w-full h-full brightness-80 saturation-80 contrast-90" />
@@ -33,26 +33,27 @@ const Header = () => {
             initial={{ opacity: 0, y: 200 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.6 }} 
-            className="flex flex-col gap-5 md:gap-10">
+            className="flex flex-col gap-3 md:gap-10">
             <MoveDownRight />
-            <span className="mt-3 text-3xl sm:text-4xl md:text-4xl lg:text-4xl text-foreground">Web Developer</span>
+            <span className="mt-3 text-3xl sm:text-3xl md:text-4xl lg:text-4xl text-foreground">Web Developer</span>
           </motion.div>
           <motion.button 
             initial={{ opacity: 0, y: 200 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.6 }} 
-            className="bg-secondary text-secondary-foreground hover:scale-104 rounded-lg w-35 h-12 sm:ml-26" 
+            className="flex items-center justify-center group gap-2 bg-secondary text-secondary-foreground border rounded-lg hover:border-primary/50 w-35 h-10 sm:ml-17 md:ml-26" 
             onClick={() => router.push("/resume")}>
             Resume
+            <FileText className="w-5 h-5 group-hover:translate-x-1"/>
           </motion.button>
         </div>
         <motion.div 
-          className="absolute mt-125 sm:mt-140 md:mt-150  font-roboto text-primary/70 text-semi-bold overflow-hidden whitespace-nowrap" initial={{ opacity: 0, y: 200 }} 
+          className="absolute mt-125 sm:mt-150  font-roboto text-primary/70 text-semi-bold overflow-hidden whitespace-nowrap" initial={{ opacity: 0, y: 200 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ duration: 0.6 }}>
           <motion.div
             className="inline-flex text-7xl sm:text-8xl md:text-9xl lg:text-[130px]"
-            animate={ isScrollingDown? {x:["0%","-50%"]} : {x:["-80%","0%"]} }
+            animate={ isScrollingDown? {x:["0%","-50%"]} : {x:["-50%","0%"]} }
             transition={{
               duration: 15,
               ease: "linear",

@@ -61,14 +61,14 @@ const projects = [
 
 export function ProjectsSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { once: false, margin: "-100px" })
   const [activeFilter, setActiveFilter] = useState("All")
   const [showAll, setShowAll] = useState(false)
 
   const displayedProjects = showAll ? projects : projects.filter((p) => p.featured)
 
   return (
-    <section id="projects" className="py-24 bg-secondary text-secondary-foreground">
+    <section id="projects" className="py-24 bg-secondary">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           ref={ref}
@@ -90,7 +90,7 @@ export function ProjectsSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 }}
-              className="text-3xl sm:text-4xl font-bold mt-4 mb-6"
+              className="text-secondary-foreground text-3xl sm:text-4xl font-bold mt-4 mb-6"
             >
               Featured Projects
             </motion.h2>
@@ -112,16 +112,16 @@ export function ProjectsSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
                 whileHover={{ y: -8 }}
-                className="group bg-white/20 border border-secondary rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500"
+                className="bg-card border border-2 border-card-border/20 rounded-2xl overflow-hidden hover:border-primary hover:shadow-xl hover:shadow-primary/5 transition-all duration-500"
               >
                 {/* Project Image */}
-                <div className="relative h-48 overflow-hidden bg-muted">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/20" />
+                <div className="group relative h-48 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/55 to-primary/20" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-4xl font-bold text-primary/20">{project.title[0]}</span>
+                    <span className="text-4xl font-bold text-primary/70">{project.title[0]}</span>
                   </div>
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-foreground/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                  <div className="absolute inset-0 bg-card/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                     <motion.a
                       href={project.githubUrl}
                       target="_blank"
@@ -148,11 +148,11 @@ export function ProjectsSection() {
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
+                <div className="group p-6">
                   <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-sm leading-relaxed mb-4 line-clamp-3">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">

@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ThemeToggle } from "./theme-toggle"
@@ -32,11 +31,11 @@ export function Navigation() {
         transition={{ type: "spring", stiffness: 100, damping: 20, delay: 4.8}}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-background/80 backdrop-blur-lg border-b border-secondary shadow-sm"
+            ? "bg-background/80 backdrop-blur-lg border-b border-secondary/30 shadow-sm"
             : "bg-transparent"
         }`}
       >
-        <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <nav className="relative max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <motion.a
             href="/#home"
             className="text-xl font-semibold tracking-tight"
@@ -53,7 +52,7 @@ export function Navigation() {
               <motion.a
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                className="text-sm font-medium text-foreground hover:text-foreground/70 transition-colors relative group"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: (index * 0.1) + 4.9 }}
@@ -66,7 +65,7 @@ export function Navigation() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-4">
+          <div className="relative flex md:hidden items-center gap-4">
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -81,27 +80,25 @@ export function Navigation() {
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-background/95 backdrop-blur-lg border-b border-secondary"
+            <div
+              className="absolute top-18.5 right-0 md:hidden flex bg-background/80 backdrop-blur-lg rounded-xs"
             >
-              <div className="px-6 py-4 flex flex-col gap-4">
+              <div className="px-6 py-4 flex flex-col items-end gap-4">
                 {navItems.map((item) => (
                   <a
                     key={item.label}
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-lg font-medium text-primary cursor-pointer hover:underline decoration-secondary transition-colors"
                   >
                     {item.label}
                   </a>
                 ))}
               </div>
-            </motion.div>
+            </div>
           )}
         </AnimatePresence>
+
       </motion.header>
     </>
   )
