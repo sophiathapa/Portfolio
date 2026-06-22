@@ -1,14 +1,15 @@
 "use client"
 
-import { motion, useInView } from "framer-motion"
-import { useRef, useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Mail, MapPin, Phone, Send } from "lucide-react"
-import { IoLogoGithub } from "react-icons/io"
-import { FaLinkedinIn } from "react-icons/fa"
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { CheckCircle2Icon, Mail, MapPin, Phone, Send, XIcon } from "lucide-react";
+import { IoLogoGithub } from "react-icons/io";
+import { FaLinkedinIn } from "react-icons/fa";
+import { toast } from "sonner";
 
 const contactInfo = [
   {
@@ -41,17 +42,43 @@ export function ContactSection() {
   const isInView = useInView(ref, { once: false, margin: "-100px" })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+    // setTimeout(() => {
+    //   setIsSubmitted(false);
+    // }, 3000);
   }
 
   return (
+    <>
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -185,93 +212,106 @@ export function ContactSection() {
               transition={{ delay: 0.5, duration: 0.5 }}
             >
               <div className="bg-card border border-card-border/30 rounded-2xl p-8 shadow-sm">
-                {isSubmitted ? (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-12"
-                  >
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Send className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
-                    <p className="text-foreground">
-                      Thank you for reaching out. I&apos;ll get back to you soon!
-                    </p>
-                  </motion.div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">Name</Label>
-                        <Input
-                          id="name"
-                          placeholder="Your name"
-                          required
-                          className="bg-background h-10 border-card-border/30 focus:ring-primary/20"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="your@email.com"
-                          required
-                          className="bg-background h-10 border-card-border/30 focus:ring-primary/20"
-                        />
-                      </div>
-                    </div>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="subject">Subject</Label>
+                      <Label htmlFor="name">Name</Label>
                       <Input
-                        id="subject"
-                        placeholder="Project inquiry"
+                        id="name"
+                        value={formData.name}
+                        placeholder="Your name"
                         required
                         className="bg-background h-10 border-card-border/30 focus:ring-primary/20"
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="message">Message</Label>
-                      <Textarea
-                        id="message"
-                        placeholder="Tell me about your project..."
-                        rows={5}
+                      <Label htmlFor="email">Email</Label>
+                      <Input
+                        id="email"
+                        value={formData.email}
+                        type="email"
+                        placeholder="your@email.com"
                         required
-                        className="bg-background h-20 border-card-border/30 focus:ring-primary/20 resize-none"
+                        className="bg-background h-10 border-card-border/30 focus:ring-primary/20"
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       />
                     </div>
-                    <Button
-                      type="submit"
-                      size="lg"
-                      className="w-full group bg-primary hover:bg-primary/90 transition-all"
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <motion.span
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                            className="mr-2"
-                          >
-                            ⏳
-                          </motion.span>
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          Send Message
-                          <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                )}
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="subject">Subject</Label>
+                    <Input
+                      id="subject"
+                      value={formData.subject}
+                      placeholder="Project inquiry"
+                      required
+                      className="bg-background h-10 border-card-border/30 focus:ring-primary/20"
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea
+                      id="message"
+                      value={formData.message}
+                      placeholder="Tell me about your project..."
+                      rows={5}
+                      required
+                      className="bg-background h-20 border-card-border/30 focus:ring-primary/20 resize-none"
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+
+                    />
+                  </div>
+                  {/* <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full group bg-primary hover:bg-primary/90 transition-all"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <motion.span
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          className="mr-2"
+                        >
+                          ⏳
+                        </motion.span>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </>
+                    )}
+                  </Button> */}
+                  <Button
+                    type="submit"
+                    className="w-full group bg-primary hover:bg-primary/90 transition-all"
+                    onClick={() =>{
+                      toast("Event has been created", {
+          description: "Sunday, December 03, 2023 at 9:00 AM",
+          action: {
+            label: "Undo",
+            onClick: () => console.log("Undo"),
+          },
+        })
+                      }
+                    }
+                  >
+                    Send Message
+                    <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </form>
               </div>
             </motion.div>
           </div>
         </motion.div>
       </div>
+
     </section>
+    </>
   )
 }

@@ -14,6 +14,9 @@ const navItems = [
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [hovered,setHovered] = useState(false);
+
+  const splashDone = sessionStorage.getItem("splashDone")
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +31,7 @@ export function Navigation() {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ type: "spring", stiffness: 100, damping: 20, delay: 4.8}}
+        transition={{ type: "spring", stiffness: 100, damping: 20, delay: splashDone ? 0.2 : 4.8}}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? "bg-background/80 backdrop-blur-lg border-b border-secondary/30 shadow-sm"
@@ -36,15 +39,34 @@ export function Navigation() {
         }`}
       >
         <nav className="relative max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <motion.a
-            href="/#home"
-            className="text-xl font-semibold tracking-tight"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+          <div
+            className="relative cursor-pointer"
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
           >
-            <span className="text-primary">Sophia</span>
-            <span className="text-secondary">TM</span>
-          </motion.a>
+            <AnimatePresence mode="wait">
+              {hovered ? (
+                <motion.a
+                  href="/#home"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="text-xl font-semibold text-primary font-semibold tracking-tight"
+                >
+                  Sophia Thapa Magar
+                </motion.a>
+              ) : (
+                <motion.span
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, x:-10 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-lg text-foreground tracking-tight"
+                >
+                  © Code by Sophia
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -55,7 +77,7 @@ export function Navigation() {
                 className="text-sm font-medium text-foreground hover:text-foreground/70 transition-colors relative group"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: (index * 0.1) + 4.9 }}
+                transition={{ delay: splashDone ? (index * 0.1) + 0.3 : (index * 0.1) + 4.9 }}
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />

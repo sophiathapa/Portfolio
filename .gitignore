@@ -13,7 +13,7 @@ node_modules
 /coverage
 
 # next.js
-/Portfolio/.next
+/portfolio-frontend/.next
 /out/
 
 # production

@@ -17,12 +17,11 @@ export function ThemeToggle() {
   }
 
   const isDark = theme === "dark";
-  console.log(theme);
 
   return (
     <motion.button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative w-14 h-8 rounded-full bg-secondary border border-border p-1 transition-colors hover:bg-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      className="relative w-14 h-8 rounded-full bg-card border border-card-border p-1 transition-colors hover:bg-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       whileTap={{ scale: 0.95 }}
       aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
     >
