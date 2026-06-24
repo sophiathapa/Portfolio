@@ -53,28 +53,28 @@ export function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true);
 
-    // try {
-    //   const response = await fetch("/api/contact", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(formData),
-    //   });
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    //   const data = await response.json();
+      const data = await response.json();
 
-    //   if (data.success) {
-    //     setIsSubmitted(true);
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // } finally {
-    //   setIsSubmitting(false);
-    // }
-    // setTimeout(() => {
-    //   setIsSubmitted(false);
-    // }, 3000);
+      if (data.success) {
+        setIsSubmitted(true);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 3000);
   }
 
   return (
