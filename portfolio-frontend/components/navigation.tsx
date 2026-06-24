@@ -14,11 +14,12 @@ const navItems = [
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [hovered,setHovered] = useState(false);
-
-  const splashDone = sessionStorage.getItem("splashDone")
+  const [hovered, setHovered] = useState(false);
+  const [splashDone, setSplashDone] = useState<boolean | null>(null);
 
   useEffect(() => {
+    const data = sessionStorage.getItem("key") === "true";
+    setSplashDone(data);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
