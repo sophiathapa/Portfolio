@@ -1,9 +1,8 @@
 "use client";
-import { easeInOut, motion, useAnimationControls, useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { FileText, MoveDownRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { useState } from "react";
 
 const Header = () => {
   const [isScrollingDown, setIsScrollingDown] = useState(true);
@@ -26,7 +25,7 @@ const Header = () => {
           className="relative mt-10 md:mt-0 w-[450px] sm:w-[530px] md:w-[550px] lg:w-[600px] h-[600px] sm:h-full md:h-full lg:h-full">
           <img src="sophia.png" 
             alt="me" 
-            className="absolute bootom-0 w-full h-full brightness-80 saturation-80 contrast-90" />
+            className="absolute bootom-0 w-full h-full grayscale-[70%] saturate-125 contrast-110" />
         </motion.div>
         <div className="relative sm:mt-80 flex flex-col gap-5 md:gap-10 ml-10 md:ml-0">
           <motion.div 

@@ -1,5 +1,4 @@
 "use client"
-
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Badge } from "@/components/ui/badge"
@@ -12,8 +11,8 @@ const experiences = [
     company: "Wolfmatrix",
     companyUrl: "https://example.com",
     description:
-      "Lead development of customer-facing applications using React, Next.js, and Node.js. Implemented microservices architecture that improved system reliability by 40%. Mentoring junior developers and conducting code reviews.",
-    technologies: ["Node.js", "Nest.js", "PostgreSQL", "React", "Next.js", "TypeScript"],
+      "Contributed to the development of backend systems for logistics and shipment management platforms. Designed and implemented a Role-Based Access Control (RBAC) system, developed staff hierarchy management features, and optimized critical workflows. Worked on resolving production issues and improving the performance, scalability, and reliability of core business operations.",
+    technologies: ["Node.js", "Nest.js", "PostgreSQL", "React", "TypeScript"],
   },
   {
     period: "Jun 2025 — Sep 2025",
@@ -21,8 +20,8 @@ const experiences = [
     company: "Aster Innovations",
     companyUrl: "https://example.com",
     description:
-      "Built responsive web applications and component libraries using React and Vue.js. Collaborated with UX designers to implement pixel-perfect designs. Reduced page load times by 60% through optimization techniques.",
-    technologies: ["React", "JavaScript", "Figma", "Git"],
+      "Built responsive and interactive user interfaces using React.js while ensuring a seamless experience across devices. Developed reusable components, integrated APIs, and collaborated with the team to deliver dynamic features that improved usability, consistency, and overall application performance.",
+    technologies: ["React", "JavaScript", "Figma", "Git", "Next.js"],
   },
 ]
 

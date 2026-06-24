@@ -2,11 +2,9 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, ArrowRight } from "lucide-react";
-import { IoLogoGithub } from "react-icons/io";
+import { ArrowRight } from "lucide-react";
 import { LuGithub } from "react-icons/lu";
 
 
@@ -15,7 +13,7 @@ const projects = [
     id: 1,
     title: "Samiksha Sansar",
     description:
-      "This is a MERN-based web platform where readers can explore books, read detailed information, leave comments, like books, and get intelligent recommendations based on their preferences.",
+      "A full-stack MERN application for book management, featuring secure authentication, role-based access, advanced search and filtering, and Redux-powered state management. Built with a focus on scalability, clean architecture, and an intuitive user experience.",
     image: "/images/project-2.jpg",
     technologies: ["React", "Node.js", "Express", "Mongodb", "JWT"],
     liveUrl: null,

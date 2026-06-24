@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { CheckCircle2Icon, Mail, MapPin, Phone, Send, XIcon } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { IoLogoGithub } from "react-icons/io";
 import { FaLinkedinIn } from "react-icons/fa";
 import { toast } from "sonner";
@@ -53,25 +53,25 @@ export function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    // try {
+    //   const response = await fetch("/api/contact", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(formData),
+    //   });
 
-      const data = await response.json();
+    //   const data = await response.json();
 
-      if (data.success) {
-        setIsSubmitted(true);
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsSubmitting(false);
-    }
+    //   if (data.success) {
+    //     setIsSubmitted(true);
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // } finally {
+    //   setIsSubmitting(false);
+    // }
     // setTimeout(() => {
     //   setIsSubmitted(false);
     // }, 3000);
@@ -263,41 +263,14 @@ export function ContactSection() {
 
                     />
                   </div>
-                  {/* <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full group bg-primary hover:bg-primary/90 transition-all"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <motion.span
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                          className="mr-2"
-                        >
-                          ⏳
-                        </motion.span>
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </>
-                    )}
-                  </Button> */}
                   <Button
                     type="submit"
                     className="w-full group bg-primary hover:bg-primary/90 transition-all"
                     onClick={() =>{
-                      toast("Event has been created", {
-          description: "Sunday, December 03, 2023 at 9:00 AM",
-          action: {
-            label: "Undo",
-            onClick: () => console.log("Undo"),
-          },
-        })
+                      toast.success("Message sent successfully!", {
+                        description: "Thank you for reaching out. I'll get back to you soon.",
+                        position: "top-right",
+                      })
                       }
                     }
                   >

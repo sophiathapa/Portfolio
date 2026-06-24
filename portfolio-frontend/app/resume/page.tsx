@@ -2,7 +2,6 @@
 import Footer from "@/components/Footer";
 import { motion, useInView } from "framer-motion";
 import { Mail, Phone, MapPin, Download, ExternalLink } from "lucide-react";
-import { useRef } from "react";
 
 const contactInfo = [
     { icon: Mail, value: "sophia.thapa55@gmail.com" },
@@ -13,7 +12,7 @@ const contactInfo = [
 const resumeDetails = [
   {
     label: "File Size",
-    value: "1.2 MB",
+    value: "75.2 kB",
   },
   {
     label: "Pages",
@@ -46,8 +45,8 @@ const Resume = () => {
           </motion.p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
             <motion.a
-                href="/resume9.pdf"
-                download="Sophia_Resume.pdf"
+                href="/Sophia_Resume.pdf"
+                download="/Sophia_Resume.pdf"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6}}
@@ -60,7 +59,7 @@ const Resume = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6}}
-                onClick={() => window.open("/resume9.pdf", "_blank")}
+                onClick={() => window.open("Sophia_Resume.pdf", "_blank")}
                 className="flex justify-center items-center gap-3 bg-primary/60 rounded-lg p-2 w-55 h-15 hover:scale-105 border-primary/50 transition-all font-sm"
             >
                <ExternalLink className="w-8 h-8" /> Open On New Tab
@@ -96,10 +95,10 @@ const Resume = () => {
             </div>
             <div className="flex flex-col gap-8 justify-center bg-card border-2 border-card-border/30 rounded-md p-10 overflow-hidden">
               <h2 className="text-3xl md:text-4xl font-semibold text-primary">Resume Preview</h2>
-              <object data="resume9.pdf" type="application/pdf" height="700px" className="mx-auto w-[200px] sm:w-[500px] md:w-[700px] lg:w-[900px] border-2 border-card-border/30 rounded-md">
+              <object data="Sophia_Resume.pdf" type="application/pdf" height="700px" className="mx-auto w-[200px] sm:w-[500px] md:w-[700px] lg:w-[900px] border-2 border-card-border/30 rounded-md">
                 <p>
                   Your browser does not support PDFs.{" "}
-                  <a href="resume.pdf" className="text-primary underline">
+                  <a href="Sophia_Resume.pdf" className="text-primary underline">
                     Download the resume
                   </a>
                   .
